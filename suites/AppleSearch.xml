@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="AppleSuit" verbose="1">
+    <test name="AppleSuit">
+        <classes>
+            <class name="com.apple.scenarios.AppleSearch"/>
+        </classes>
+    </test>
+</suite>
