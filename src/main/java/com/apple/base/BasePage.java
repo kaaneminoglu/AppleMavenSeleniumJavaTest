@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.Objects;
 
 public class BasePage extends DriverManager {
 
@@ -21,5 +22,19 @@ public class BasePage extends DriverManager {
 
     protected void scrollToWebElement(By locator) {
         driver.findElement(locator).getLocation();
+    }
+
+    protected void checkTitle(String title) throws Exception {
+        if (Objects.equals(driver.getTitle(), title)) return;
+        throw new Exception();
+    }
+
+    protected void checkWebList(By listlocator, String[] checkList) throws Exception {
+        List<WebElement> webList = listWebElements(listlocator);
+        for (int i = 0; i < webList.size(); i++) {
+            if (!webList.get(i).getText().trim().contains(checkList[i])) {
+                throw new Exception();
+            }
+        }
     }
 }

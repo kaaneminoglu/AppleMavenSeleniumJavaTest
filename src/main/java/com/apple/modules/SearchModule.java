@@ -7,7 +7,6 @@ public class SearchModule extends BaseClass {
 
     public void search(String searchText) throws Exception {
         HomePage homePage = new HomePage();
-        homePage.clickSearch();
         homePage.searchText(searchText);
         homePage.checkSearchList();
     }

@@ -2,7 +2,7 @@
 
 <suite name="AppleSuit" verbose="1">
     <test name="AppleSuit">
-        <parameter name ="browser" value="Firefox"/>
+        <parameter name="browser" value="Chrome"/>
         <classes>
             <class name="com.apple.scenarios.AppleCheckMenu"/>
         </classes>
