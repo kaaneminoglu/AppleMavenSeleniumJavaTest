@@ -1,13 +1,13 @@
 package com.apple.pages;
 
-import com.apple.base.BaseClass;
+import com.apple.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class HomePage extends BaseClass {
+public class HomePage extends BasePage {
 
     private final By btnSearch = By.id("ac-gn-link-search");
     private final By txtSearch = By.id("ac-gn-searchform-input");
@@ -17,7 +17,7 @@ public class HomePage extends BaseClass {
 
     public void clickSearch() throws Exception {
         try {
-            driver.findElement(btnSearch).click();
+            super.clickWebElement(btnSearch);
         } catch (Exception e) {
             throw new Exception(e);
         }
@@ -25,8 +25,8 @@ public class HomePage extends BaseClass {
 
     public void searchText(String searchText) throws Exception {
         try {
-            driver.findElement(txtSearch).sendKeys(searchText);
-            driver.findElement(txtSearch).sendKeys(Keys.ENTER);
+            super.sendKeysWebElement(txtSearch, searchText);
+            super.sendKeysWebElement(txtSearch, Keys.ENTER);
         } catch (Exception e) {
             throw new Exception(e);
         }
@@ -34,7 +34,7 @@ public class HomePage extends BaseClass {
 
     public void checkSearchList() throws Exception {
         try {
-            List<WebElement> searchList = driver.findElements(lstSearch);
+            List<WebElement> searchList = super.listWebElements(lstSearch);
             if (searchList.size() != 3) {
                 throw new Exception();
             }
@@ -45,7 +45,7 @@ public class HomePage extends BaseClass {
 
     public void scrollToFooter() throws Exception {
         try {
-            driver.findElement(lblFooter).getLocation();
+            super.scrollToWebElement(lblFooter);
         } catch (Exception e) {
             throw new Exception(e);
         }
@@ -53,7 +53,7 @@ public class HomePage extends BaseClass {
 
     public void menuCheck(String[] menuNameList) throws Exception {
         try {
-            List<WebElement> menuList = driver.findElements(lstMenu);
+            List<WebElement> menuList = super.listWebElements(lstMenu);
             for (int i = 0; i < menuList.size(); i++) {
                 if (!menuList.get(i).getText().trim().equals(menuNameList[i])) {
                     throw new Exception();
