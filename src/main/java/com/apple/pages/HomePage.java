@@ -55,8 +55,6 @@ public class HomePage extends BaseClass {
         try {
             List<WebElement> menuList = driver.findElements(lstMenu);
             for (int i = 0; i < menuList.size(); i++) {
-                String a = menuList.get(i).getText().trim();
-                String b = menuNameList[i];
                 if (!menuList.get(i).getText().trim().equals(menuNameList[i])) {
                     throw new Exception();
                 }
