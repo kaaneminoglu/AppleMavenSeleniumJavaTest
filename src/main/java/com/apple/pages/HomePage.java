@@ -13,10 +13,7 @@ public class HomePage extends BaseClass {
     private final By txtSearch = By.id("ac-gn-searchform-input");
     private final By lstSearch = By.xpath(".//div[@id='explore-tab']//div[@class='as-explore-curated']/div");
     private final By lblFooter = By.id("ac-globalfooter");
-    private final By lstMenu = By.xpath(".//ul[@class='ac-gn-list']/li");
-
-    public HomePage() {
-    }
+    private final By lstMenu = By.xpath(".//ul[@class='ac-gn-list']/li/a");
 
     public void clickSearch() throws Exception {
         try {
@@ -58,7 +55,9 @@ public class HomePage extends BaseClass {
         try {
             List<WebElement> menuList = driver.findElements(lstMenu);
             for (int i = 0; i < menuList.size(); i++) {
-                if (!menuList.get(i).getText().equals(menuNameList[i])) {
+                String a = menuList.get(i).getText().trim();
+                String b = menuNameList[i];
+                if (!menuList.get(i).getText().trim().equals(menuNameList[i])) {
                     throw new Exception();
                 }
             }

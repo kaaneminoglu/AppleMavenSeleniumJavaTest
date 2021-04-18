@@ -3,6 +3,7 @@
 <suite name="RegressionSuite">
 
     <test name="RegressionTest">
+        <parameter name ="browser" value="Firefox"/>
         <groups>
             <run>
                 <include name="RegressionGroup"/>
